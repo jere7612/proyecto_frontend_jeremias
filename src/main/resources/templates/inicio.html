@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto Jeremias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/inicio.css}">
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/login/autenticar}" method="post">
+        <div class="mt-5 mb-4">
+            <h1>Grupo # Jeremias Perez</h1>
+        </div>
+
+        <!-- Mostrar mensaje de error si loginModel.codigoAlumno no es '00' -->
+        <div class="alert alert-danger" role="alert" th:if="${loginModel.codigoAlumno != '00'}">
+            <span th:text="${loginModel.mensaje}"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="codigoAlumno" class="form-label text-start">Código Alumno</label>
+            <input type="text" id="codigoAlumno" name="codigoAlumno" placeholder="Código Alumno"
+                   class="form-control form-control-lg">
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label text-start">Contraseña</label>
+            <input type="password" id="password" name="password" placeholder="Contraseña"
+                   class="form-control form-control-lg">
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">Ingresar</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
